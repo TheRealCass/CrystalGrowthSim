@@ -45,7 +45,7 @@ class Crystal {
     }
 }
 
-public class CrystalGrowth {
+public class AVM {
     public static Crystal simulateCrystalGrowth(int numParticles) {
         Crystal crystal = new Crystal(0, 0);
         List<Particle> particles = new ArrayList<Particle>();

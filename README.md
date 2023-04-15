@@ -4,14 +4,18 @@
 
 ### Answer to Quesion 1
 
-An agent-based model (AVM) is a computational model that simulates the actions and interactions of autonomous agents in order to understand complex systems. To create an agent-based model for this project, I would need to define the agents (in this case, the particles) and their behavior (in this case, performing random walks in continuous space). I would also need to define the rules for how the agents interact with each other and with their environment (in this case, how they stick to the crystal when they get close to it)
+An agent-based model (AVM) is a computational model that simulates the actions and interactions of autonomous agents in order to understand complex systems. To create an AVM for this project, we would need to first define the agents and their behavior. We would then need to define the rules for how the agents interact with each other and with their environment
 
---------
+A cellular Atomaton (CA) is a discreate model that consists of a grid of cells, each of which can be in one of a finite number of states. The states of each cell change over time according to a set of rules that depend on the states of the neighbour cells. To develop a CA for crystal growth, we would have to start by defining the grid and the states of the cells  We would then have to define the rules on how the states of each cell chanegs over time. We would then simulate the evaluation of the CA over time
 
-To create an agent-based model for crystal growth,
+----------
 
-Define the initial seed (impurity) and the initial positions of the particles (agents) in continuous space.
-At each time step, update the positions of the particles based on a random distribution that models Brownian motion.
-Check if any particle is close enough to the crystal (initial seed or previously stuck particles) to get stuck. If so, update the crystal and remove the particle from the simulation.
-Repeat steps 2-3 until the desired crystal size is reached or a maximum number of time steps is reached.
-To create a cellular automaton for crystal growth, you could follow these steps:
+##### ANSWER A
+
+###### Steps to create a AVM for crystal growth
+    
+* step 1: Defining the agents and their behaviour
+    The environment is the solution in which the particles move. The bounderies of the enviornment is the phyical restrians of the breaker containg the liquid
+
+* step 2: Defining the rules of crystal groth
+
