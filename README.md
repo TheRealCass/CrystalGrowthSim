@@ -1,4 +1,4 @@
-# PHYS 2010 [A01] 
+# PHYS 2010 [A01]
 ## FINAL PROJECT
 ------------------------------------------------------------------------------------------------------------------------
 
@@ -21,10 +21,10 @@ A cellular Atomaton (CA) is a discreate model that consists of a grid of cells, 
     The environment is the solution in which the particles move. We define the boundaries of the environment and in this case that could be sonmething like a breaker.
 
     * step 3: **Define the rules for crystal growth**
-    We need to specify when a particle sticks to the crystal. We need to define a threshold distance such that if a particle gets closer than this distance to the seed or the crystal, it sticks and becomes part of the crystal.
+    We need to specify when a particle sticks to the crystal. We need to define a threshold distance such that if a particle gets closer than this distance to the seed or the crystal, it sticks and becomes part of the crystal. For this example it's set to anything less than 1
 
     * step 4: **Initialize the model**
-    At the start of the simulation, we need to initialize the positions of the particles and the seed. We randomly istribute the particles within the environment and place the seed at a fixed position.
+    At the start of the simulation, we need to initialize the positions of the particles and the seed. We randomly distribute the particles within the environment and place the seed at a fixed position.
     
     * step 5: **Simulate the motion of the particles**
     At each time step, we update the positions of the particles according to their behavior (random motion).
@@ -33,7 +33,7 @@ A cellular Atomaton (CA) is a discreate model that consists of a grid of cells, 
     At each time step, you need to check if any particles have gotten close enough to stick to the crystal. If so, we update the crystal accordingly
     
     * step 7: **Repeat steps 5-6 until you reach a stopping condition**
-    (e.g., a certain number of time steps have passed or the crystal has reached a certain size or all the liquid has been compleately crystalized).
+    (e.g., a certain number of time steps have passed or the crystal has reached a certain size or all the liquid has been compleately crystalized). For this example, i have chosen to stop a perticular time step
 
 2. ###### Steps to create a CA for crystal growth
 
@@ -79,7 +79,7 @@ This code was used to generate the *gif* file that you see below in the Cellular
 
 Both models have their advantages and disadvantages. ABMs can capture more detailed behavior and interactions between agents but can be more computationally intensive. CAs are simpler and faster to simulate but may not capture as much detail. The choice of which model to use would depend on your specific goals and requirements. In this particular case, AVM simulation have a continuous space, where in the CA it is discreatised.
 
-The simulation of  crystal groth from a impurity in a liquid using Cellular Automaton (CA) is as follows,
+The simulation of  crystal groth from a impurity in the center of a liquid using Cellular Automaton (CA) is as follows,
 ![](CA_Sim.gif)
 
 
@@ -97,3 +97,8 @@ The simulation of  crystal groth from a impurity in a liquid using Agent-Based M
 * add name and ID
 * possible to add labels?
 * change fps?
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+@author: Rubait Ul Ahamed [ID: 7876180]

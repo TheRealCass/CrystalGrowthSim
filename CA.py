@@ -16,7 +16,7 @@ MAX_VELOCITY = 3 # maximum velocity a molicule. Related to the energy a molicule
 RUN_CYCLE = 500 # total number to time passed after the start of the simulation
 WHITE = [255, 255, 255] # color representing molicule
 RED = [255, 0, 0] # colour representing crystal
-OUTPUT_FILE = "CA_Sim" # name of the output gif file to be created
+OUTPUT_FILE = "CA_Sim_2seed" # name of the output gif file to be created
 
 
 
@@ -26,10 +26,9 @@ OUTPUT_FILE = "CA_Sim" # name of the output gif file to be created
 
 
 def simulate (run_cycle):
-    num_steps = run_cycle
     images = []
     grid = create_grid(TOTAL_SPOTS, DENCITY)
-    for step in range(num_steps):
+    for step in range(run_cycle):
         # Update the grid at each time step
         grid = update(grid)
         # Generate an image of the current state of the grid and add it to the list of images
@@ -46,7 +45,7 @@ def create_grid(total_spots, dencity):
     
     # Define the grid size and number of particles
     grid_size = int(math_library.sqrt(total_spots))
-    num_particles = int(grid_size * dencity) * 100  #75 perdent full
+    num_particles = int(grid_size * dencity) * 100
 
     # Initialize the grid by filling it with empty space
     grid = [[EMPTY for x in range(grid_size)] for y in range(grid_size)]
@@ -59,7 +58,11 @@ def create_grid(total_spots, dencity):
 
     # Place the seed in the middle
     grid[grid_size//2][grid_size//2] = CRYSTAL
-    
+
+    # try having 2 impurities on diagonal corners
+    # grid[grid_size-1][grid_size-1] = CRYSTAL
+    # grid[0][0] = CRYSTAL
+
     #return created grid
     return grid
 
@@ -129,6 +132,6 @@ def generate_image(grid):
 
 
 
-
+# FINALLY, run the simulation
 simulate(RUN_CYCLE)
 
