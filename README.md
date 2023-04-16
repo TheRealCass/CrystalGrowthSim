@@ -80,12 +80,11 @@ This code was used to generate the *gif* file that you see below in the Cellular
 Both models have their advantages and disadvantages. ABMs can capture more detailed behavior and interactions between agents but can be more computationally intensive. CAs are simpler and faster to simulate but may not capture as much detail. The choice of which model to use would depend on your specific goals and requirements. In this particular case, AVM simulation have a continuous space, where in the CA it is discreatised.
 
 The simulation of  crystal groth from a impurity in a liquid using Cellular Automaton (CA) is as follows,
+![](CA_Sim.gif)
 
-![](ABM_Sim.gif)
 
 The simulation of  crystal groth from a impurity in a liquid using Agent-Based Model (ABM) is as follows,
-
-![](CA_Sim.gif)
+![](ABM_Sim.gif)
 
 
 ------------------------------------------------------------------------------------------------------------------------
@@ -97,3 +96,4 @@ The simulation of  crystal groth from a impurity in a liquid using Agent-Based M
 * spell check the readme.md
 * add name and ID
 * possible to add labels?
+* change fps?

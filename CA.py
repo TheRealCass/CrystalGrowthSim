@@ -1,6 +1,6 @@
-import random
-import imageio
-import numpy as np
+import random as dealer # as in dealer from the casino who gives you
+from imageio import mimsave as save_video
+import numpy as math_library
 
 
 # Define the states
@@ -10,10 +10,10 @@ CRYSTAL = 2
 
 
 # other constats 
-TOTAL_SPOTS = 50000 # number of total spaces that molicules can occupy
-DENCITY = 0.50 # percentage of molicule to empty space in the solution
+TOTAL_SPOTS = 100000 # number of total spaces that molicules can occupy
+DENCITY = 0.60 # percentage of molicule to empty space in the solution
 MAX_VELOCITY = 3 # maximum velocity a molicule. Related to the energy a molicule has
-RUN_CYCLE = 250 # total number to time passed after the start of the simulation
+RUN_CYCLE = 500 # total number to time passed after the start of the simulation
 WHITE = [255, 255, 255] # color representing molicule
 RED = [255, 0, 0] # colour representing crystal
 OUTPUT_FILE = "CA_Sim" # name of the output gif file to be created
@@ -37,7 +37,7 @@ def simulate (run_cycle):
         images.append(image)
 
     # Save the list of images as an animated GIF using imageio.mimsave()
-    imageio.mimsave(OUTPUT_FILE + ".gif", images)
+    save_video(OUTPUT_FILE + ".gif", images)
 
 
 
@@ -45,7 +45,7 @@ def simulate (run_cycle):
 def create_grid(total_spots, dencity):
     
     # Define the grid size and number of particles
-    grid_size = int(np.sqrt(total_spots))
+    grid_size = int(math_library.sqrt(total_spots))
     num_particles = int(grid_size * dencity) * 100  #75 perdent full
 
     # Initialize the grid by filling it with empty space
@@ -53,8 +53,8 @@ def create_grid(total_spots, dencity):
 
     # Scatter particles randomly
     for i in range(num_particles):
-        x = random.randint(0, grid_size-1)
-        y = random.randint(0, grid_size-1)
+        x = dealer.randint(0, grid_size-1)
+        y = dealer.randint(0, grid_size-1)
         grid[x][y] = PARTICLE
 
     # Place the seed in the middle
@@ -80,8 +80,8 @@ def update(grid):
             if grid[x][y] == PARTICLE:
                 # Move particle
                 # Choose a random direction to move in (up, down, left, right or diagonally)
-                dx = random.randint(-MAX_VELOCITY, MAX_VELOCITY)
-                dy = random.randint(-MAX_VELOCITY, MAX_VELOCITY)
+                dx = dealer.randint(-MAX_VELOCITY, MAX_VELOCITY)
+                dy = dealer.randint(-MAX_VELOCITY, MAX_VELOCITY)
                 # Calculate the new position of the particle after moving
                 new_x = (x + dx) % grid_size
                 new_y = (y + dy) % grid_size
@@ -115,7 +115,7 @@ def generate_image(grid):
     #get the grid size
     grid_size = len(grid)
     # Create an empty RGB image with the same size as the grid
-    image = np.zeros((grid_size, grid_size, 3), dtype=np.uint8)
+    image = math_library.zeros((grid_size, grid_size, 3), dtype = math_library.uint8)
     # Loop over all cells in the grid
     for x in range(grid_size):
         for y in range(grid_size):
