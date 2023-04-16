@@ -2,32 +2,75 @@ import random
 import imageio
 import numpy as np
 
-# Define the grid size and number of particles
-grid_size = 100
-num_particles = 5000
 
 # Define the states
 EMPTY = 0
 PARTICLE = 1
 CRYSTAL = 2
 
-# Initialize the grid
-grid = [[EMPTY for x in range(grid_size)] for y in range(grid_size)]
 
-# Scatter particles randomly
-for i in range(num_particles):
-    x = random.randint(0, grid_size-1)
-    y = random.randint(0, grid_size-1)
-    grid[x][y] = PARTICLE
+# other constats 
+TOTAL_SPOTS = 50000 # number of total spaces that molicules can occupy
+DENCITY = 0.50 # percentage of molicule to empty space in the solution
+MAX_VELOCITY = 3 # maximum velocity a molicule. Related to the energy a molicule has
+RUN_CYCLE = 250 # total number to time passed after the start of the simulation
+WHITE = [255, 255, 255] # color representing molicule
+RED = [255, 0, 0] # colour representing crystal
+OUTPUT_FILE = "CA_Sim" # name of the output gif file to be created
 
-# Place the seed
-grid[grid_size//2][grid_size//2] = CRYSTAL
 
-# Define the update function
+
+
+
+
+
+
+def simulate (run_cycle):
+    num_steps = run_cycle
+    images = []
+    grid = create_grid(TOTAL_SPOTS, DENCITY)
+    for step in range(num_steps):
+        # Update the grid at each time step
+        grid = update(grid)
+        # Generate an image of the current state of the grid and add it to the list of images
+        image = generate_image(grid)
+        images.append(image)
+
+    # Save the list of images as an animated GIF using imageio.mimsave()
+    imageio.mimsave(OUTPUT_FILE + ".gif", images)
+
+
+
+
+def create_grid(total_spots, dencity):
+    
+    # Define the grid size and number of particles
+    grid_size = int(np.sqrt(total_spots))
+    num_particles = int(grid_size * dencity) * 100  #75 perdent full
+
+    # Initialize the grid by filling it with empty space
+    grid = [[EMPTY for x in range(grid_size)] for y in range(grid_size)]
+
+    # Scatter particles randomly
+    for i in range(num_particles):
+        x = random.randint(0, grid_size-1)
+        y = random.randint(0, grid_size-1)
+        grid[x][y] = PARTICLE
+
+    # Place the seed in the middle
+    grid[grid_size//2][grid_size//2] = CRYSTAL
+    
+    #return created grid
+    return grid
+
+
+
+
 def update(grid):
     # Create a copy of the grid to update
     # This is necessary because we need to update all cells simultaneously
     # If we updated the cells one by one in the original grid, the updates would affect each other
+    grid_size = len(grid)
     new_grid = [row[:] for row in grid]
     
     # Loop over all cells in the grid
@@ -37,8 +80,8 @@ def update(grid):
             if grid[x][y] == PARTICLE:
                 # Move particle
                 # Choose a random direction to move in (up, down, left, right or diagonally)
-                dx = random.randint(-1, 1)
-                dy = random.randint(-1, 1)
+                dx = random.randint(-MAX_VELOCITY, MAX_VELOCITY)
+                dy = random.randint(-MAX_VELOCITY, MAX_VELOCITY)
                 # Calculate the new position of the particle after moving
                 new_x = (x + dx) % grid_size
                 new_y = (y + dy) % grid_size
@@ -64,8 +107,13 @@ def update(grid):
     # Return the updated grid
     return new_grid
 
-# Define a function to generate an image from the grid
+
+
+
 def generate_image(grid):
+
+    #get the grid size
+    grid_size = len(grid)
     # Create an empty RGB image with the same size as the grid
     image = np.zeros((grid_size, grid_size, 3), dtype=np.uint8)
     # Loop over all cells in the grid
@@ -73,21 +121,14 @@ def generate_image(grid):
         for y in range(grid_size):
             # If the cell contains a particle, set its color to white in the image
             if grid[x][y] == PARTICLE:
-                image[x,y] = [255, 255, 255]
+                image[x,y] = WHITE
             # If the cell is part of the crystal, set its color to red in the image
             elif grid[x][y] == CRYSTAL:
-                image[x,y] = [255, 0, 0]
+                image[x,y] = RED
     return image
 
-# Run the simulation and generate an animated GIF
-num_steps = 100
-images = []
-for step in range(num_steps):
-    # Update the grid at each time step
-    grid = update(grid)
-    # Generate an image of the current state of the grid and add it to the list of images
-    image = generate_image(grid)
-    images.append(image)
 
-# Save the list of images as an animated GIF using imageio.mimsave()
-imageio.mimsave('animation5.gif', images)
+
+
+simulate(RUN_CYCLE)
+
