@@ -1,8 +1,9 @@
 import random
+import matplotlib.pyplot as plt
 
 # Constants
 GRID_SIZE = 100  # size of the grid
-NUM_PARTICLES = 10  # number of particles to be deposited
+NUM_PARTICLES = 1000  # number of particles to be deposited
 EMPTY = 0  # empty cell state
 CRYSTAL = 1  # crystal cell state
 PARTICLE = 2  # particle cell state
@@ -57,17 +58,6 @@ def is_next_to_crystal(grid, x, y):
            grid[x][(y + 1) % GRID_SIZE] == CRYSTAL or \
            grid[x][(y - 1 + GRID_SIZE) % GRID_SIZE] == CRYSTAL
 
-def print_grid(grid):
-    # print the current state of the grid, with crystal cells represented by "#" and particle cells represented by "*"
-    for i in range(GRID_SIZE):
-        for j in range(GRID_SIZE):
-            if grid[i][j] == CRYSTAL:
-                print("#", end="")
-            elif grid[i][j] == PARTICLE:
-                print("*", end="")
-            else:
-                print(" ", end="")
-        print()
 
 # create a GRID_SIZE x GRID_SIZE grid with all cells initialized to EMPTY
 grid = [[EMPTY for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
@@ -76,4 +66,5 @@ grid = [[EMPTY for _ in range(GRID_SIZE)] for _ in range(GRID_SIZE)]
 simulate_crystal_growth(grid)
 
 # print the final state of the grid
-print_grid(grid)
+plt.imshow(grid)
+plt.show()

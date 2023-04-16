@@ -8,14 +8,50 @@ An agent-based model (AVM) is a computational model that simulates the actions a
 
 A cellular Atomaton (CA) is a discreate model that consists of a grid of cells, each of which can be in one of a finite number of states. The states of each cell change over time according to a set of rules that depend on the states of the neighbour cells. To develop a CA for crystal growth, we would have to start by defining the grid and the states of the cells  We would then have to define the rules on how the states of each cell chanegs over time. We would then simulate the evaluation of the CA over time
 
+Both models have their advantages and disadvantages. ABMs can capture more detailed behavior and interactions between agents but can be more computationally intensive. CAs are simpler and faster to simulate but may not capture as much detail. The choice of which model to use would depend on your specific goals and requirements. In this particular case, AVM simulation have a continuous space, where in the CA it is discreatised.
+
 ----------
 
 ##### ANSWER A
 
-###### Steps to create a AVM for crystal growth
+1. ###### Steps to create a AVM for crystal growth
     
-* step 1: Defining the agents and their behaviour
-    The environment is the solution in which the particles move. The bounderies of the enviornment is the phyical restrians of the breaker containg the liquid
+    * step 1: **Defining the agents and their behavior**
+    In this case, the agents are the particles that perform Brownian motion (random walks) in continuous space. We define the behavior of each particle by specifying the distribution of the distance it moves at each time step. 
 
-* step 2: Defining the rules of crystal groth
+    * step 2: **Define the environment**
+    The environment is the solution in which the particles move. We define the boundaries of the environment and in this case that could be sonmething like a breaker.
 
+    * step 3: **Define the rules for crystal growth**
+    We need to specify when a particle sticks to the crystal. We need to define a threshold distance such that if a particle gets closer than this distance to the seed or the crystal, it sticks and becomes part of the crystal.
+
+    * step 4: **Initialize the model**
+    At the start of the simulation, we need to initialize the positions of the particles and the seed. We randomly istribute the particles within the environment and place the seed at a fixed position.
+    
+    * step 5: **Simulate the motion of the particles**
+    At each time step, we update the positions of the particles according to their behavior (random motion).
+
+    *  step 6: **Update the crystal**
+    At each time step, you need to check if any particles have gotten close enough to stick to the crystal. If so, we update the crystal accordingly
+    
+    * step 7: **Repeat steps 5-6 until you reach a stopping condition**
+    (e.g., a certain number of time steps have passed or the crystal has reached a certain size or all the liquid has been compleately crystalized).
+
+2. ###### Steps to create a CA for crystal growth
+
+    * step 1: **Define the grid and the states of the cells**
+    A Cellular Automaton consists of a grid of cells, each of which can be in one of a finite number of states. In this case, we use a two-dimensional grid and define three states for the cells: empty, particle, and crystal.
+
+    * Step 2: **Define the rules for the evolution of the CA**
+    We then need to specify how the state of each cell changes over time based on the states of its neighboring cells. We define rules such as:
+        * a particle moves to an empty neighboring cell in some random direction (up, down, left, right) only if it is empty
+        * a particle becomes part of the crystal if it is adjacent to a crystal cell.
+    
+    * Step 3: **Initialize the CA**
+    At the start of the simulation, you need to initialize the states of the cells. We randomly distribute particles on the grid and place the seed (the initial crystal) at a fixed position.
+    
+    * Step 4: **Update the CA**
+    At each time step, you need to update the state of each cell according to the rules you defined in step 2.
+
+    * step 5: **Repeat step 4 until you reach a stopping condition**
+    (e.g., a certain number of time steps have passed or the crystal has reached a certain size). For this exapmle, i have chosen to stop at a particular predetermined timestep
