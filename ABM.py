@@ -41,9 +41,9 @@ class Environment: # Define a class for the environment
 # Step 3: Define rules for crystal growth (already done in Environment class)
 
 # Step 4: Initialize model
-num_particles = 2000 # Set number of particles in environment
+num_particles = 60000 # Set number of particles in environment
 width = 100 # Set width of environment (in pixels)
-height = 100 # Set height of environment (in pixels)
+height = 1000 # Set height of environment (in pixels)
 
 environment = Environment(width, height) # Create an instance of Environment class with given width and height
 
@@ -60,7 +60,7 @@ environment.add_to_crystal(seed) # Add seed to crystal
 
 # Step 5-7: Simulate motion of particles and update crystal
 frames = [] # Initialize an empty list to store frames for GIF animation
-num_steps = 100 # Set number of time steps for simulation
+num_steps = 500 # Set number of time steps for simulation
 
 for step in range(num_steps): # Loop over number of time steps in simulation
     # Create image for this frame
