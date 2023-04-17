@@ -80,7 +80,7 @@ This code was used to generate the *gif* file that you see below in the Cellular
 Both models have their advantages and disadvantages. ABMs can capture more detailed behavior and interactions between agents but can be more computationally intensive. CAs are simpler and faster to simulate but may not capture as much detail. The choice of which model to use would depend on your specific goals and requirements. In this particular case, AVM simulation have a continuous space, where in the CA it is discreatised.
 
 The simulation of  crystal groth from a impurity in a liquid using Cellular Automaton (CA) is as follows,
-    ![](CA_Sim.gif)         ![](CA_Sim_2Seed.gif)
+    ![](CA_Sim_Demo.gif)            ![](CA_Sim_2seed.gif)
 The one on the left has the impurity placed in the middle and the one one the right has 2 impurities, one on the top left and the other in the bottom right corners.
 
 

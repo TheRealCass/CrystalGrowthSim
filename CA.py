@@ -10,13 +10,13 @@ CRYSTAL = 2
 
 
 # other constats 
-TOTAL_SPOTS = 100000 # number of total spaces that molicules can occupy
-DENCITY = 0.60 # percentage of molicule to empty space in the solution
-MAX_VELOCITY = 3 # maximum velocity a molicule. Related to the energy a molicule has
-RUN_CYCLE = 500 # total number to time passed after the start of the simulation
+TOTAL_SPOTS = 10000 # number of total spaces that molicules can occupy
+DENCITY = 0.25 # percentage of molicule to empty space in the solution
+MAX_VELOCITY = 1 # maximum velocity a molicule. Related to the energy a molicule has
+RUN_CYCLE = 100 # total number to time passed after the start of the simulation
 WHITE = [255, 255, 255] # color representing molicule
 RED = [255, 0, 0] # colour representing crystal
-OUTPUT_FILE = "CA_Sim_2seed" # name of the output gif file to be created
+OUTPUT_FILE = "CA_Sim_Demo" # name of the output gif file to be created
 
 
 
