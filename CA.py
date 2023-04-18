@@ -1,6 +1,17 @@
-import random as dealer # as in dealer from the casino who gives you
-from imageio import mimsave as save_video
-import numpy as math_library
+###############################################################################################################################
+# NAME: Rubait Ul Ahamed
+# STUDENT NUMBER: 7876180
+# COURSE: PHYS 2010, SECTION: A01
+# INSTRUCTOR: Jesko Sirkir
+# FINAL PROJECT
+# 
+# REMARKS:
+# 
+###############################################################################################################################
+
+import random as dealer  # Import the random module to generate random numbers
+from imageio import mimsave as save_video  # Import the imageio module to save GIFs
+import numpy as math_library # Import the numpy module for numerical operations
 
 
 # Define the states
@@ -8,32 +19,37 @@ EMPTY = 0
 PARTICLE = 1
 CRYSTAL = 2
 
-
 # other constats 
 TOTAL_SPOTS = 10000 # number of total spaces that molicules can occupy
-DENCITY = 0.25 # percentage of molicule to empty space in the solution
+DENSITY = 0.25 # percentage of molicule to empty space in the solution
 MAX_VELOCITY = 1 # maximum velocity a molicule. Related to the energy a molicule has
-RUN_CYCLE = 100 # total number to time passed after the start of the simulation
-WHITE = [255, 255, 255] # color representing molicule
-RED = [255, 0, 0] # colour representing crystal
-OUTPUT_FILE = "CA_Sim_Demo" # name of the output gif file to be created
+RUN_CYCLE = 120 # total number to time passed after the start of the simulation
+LIQUID_MOLICULE_COLOUR = [255, 255, 255] # color representing molicule
+CRYSTAL_MOLICULE_COLOUR = [255, 0, 0] # colour representing crystal
+OUTPUT_FILE = "CA_Sim" # name of the output gif file to be created
 
 
 
 
 
 
+###############################################################################################################################
 
 
 def simulate (run_cycle):
-    images = []
-    grid = create_grid(TOTAL_SPOTS, DENCITY)
+    """
+    Simultes the movement of the liquid at each point in time
+    """
+
+    images = [] # array to save easch snapshopt in time
+    grid = create_grid(TOTAL_SPOTS, DENSITY) #creating grid to represent our vessel
+
     for step in range(run_cycle):
         # Update the grid at each time step
         grid = update(grid)
         # Generate an image of the current state of the grid and add it to the list of images
         image = generate_image(grid)
-        images.append(image)
+        images.append(image) # add each snapshopt in time to the images array
 
     # Save the list of images as an animated GIF using imageio.mimsave()
     save_video(OUTPUT_FILE + ".gif", images)
@@ -41,11 +57,23 @@ def simulate (run_cycle):
 
 
 
-def create_grid(total_spots, dencity):
+def create_grid(total_spots, density):
+    """
+    creates a grid that represents the enviournemnt the liquid is in
+
+    Args:
+        total_spots: total possible dinstinct loaction any one molicule ca be at
+        density: the ratio of the number of molicules to the amount of free space in the vessel
+
+    Returns:
+        a 2D grid that 1) has the number of total spots that was passed in
+                       2) molicules scatered in this enviournment randomly based on the density
+                       3) a seed (impurity) that has been placed in the middle 
+    """
     
     # Define the grid size and number of particles
     grid_size = int(math_library.sqrt(total_spots))
-    num_particles = int(grid_size * dencity) * 100
+    num_particles = int(grid_size * density) * 100
 
     # Initialize the grid by filling it with empty space
     grid = [[EMPTY for x in range(grid_size)] for y in range(grid_size)]
@@ -59,10 +87,6 @@ def create_grid(total_spots, dencity):
     # Place the seed in the middle
     grid[grid_size//2][grid_size//2] = CRYSTAL
 
-    # try having 2 impurities on diagonal corners
-    # grid[grid_size-1][grid_size-1] = CRYSTAL
-    # grid[0][0] = CRYSTAL
-
     #return created grid
     return grid
 
@@ -70,9 +94,21 @@ def create_grid(total_spots, dencity):
 
 
 def update(grid):
-    # Create a copy of the grid to update
-    # This is necessary because we need to update all cells simultaneously
-    # If we updated the cells one by one in the original grid, the updates would affect each other
+    """
+    updaats the grid according to the rules of the ABM
+
+    Args:
+        grid: the 2D array that represents the enviournment
+
+    Returns:
+        the updates grid after one step of time has passed. The updated
+        grid reflects teh rules of the ABM
+    """
+
+
+    # Create a copy of the grid to update. This is necessary because we need to
+    # update all cells simultaneously. If we updated the cells one by one in the
+    # original grid, the updates would affect each other
     grid_size = len(grid)
     new_grid = [row[:] for row in grid]
     
@@ -114,6 +150,12 @@ def update(grid):
 
 
 def generate_image(grid):
+    """
+    generates Image object for each snapshot in time
+
+    Returns:
+        an image abject for that snapshot
+    """
 
     #get the grid size
     grid_size = len(grid)
@@ -124,14 +166,17 @@ def generate_image(grid):
         for y in range(grid_size):
             # If the cell contains a particle, set its color to white in the image
             if grid[x][y] == PARTICLE:
-                image[x,y] = WHITE
+                image[x,y] = LIQUID_MOLICULE_COLOUR
             # If the cell is part of the crystal, set its color to red in the image
             elif grid[x][y] == CRYSTAL:
-                image[x,y] = RED
+                image[x,y] = CRYSTAL_MOLICULE_COLOUR
     return image
 
+###############################################################################################################################
 
 
 # FINALLY, run the simulation
 simulate(RUN_CYCLE)
 
+
+###############################################################################################################################
