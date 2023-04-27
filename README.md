@@ -1,7 +1,17 @@
+
+------------------------------------------------------------------------------------------------------------------------
+To whom it may concern,
+This repository was made for my PHYS 2010 [Computational Modeling] class which i am taking at the University Of Manitoba.
+
+There are 2 files that both simulate the groth of a crystal in a breaker full of solution that has a impurity placed in the middle. One of the python files uses Agent-Based Modelling to simulate it, while the other uses Cellular Atomaton
+
+I hope this repository helps you in any meaningfull way. If it does do comment. Would love to know how it did
+
+Please feel free to fork this code and if you can make it better, do create a pull request.
+
+------------------------------------------------------------------------------------------------------------------------
 # PHYS 2010 [A01]
 ## FINAL PROJECT
-------------------------------------------------------------------------------------------------------------------------
-
 ### ANSWER
 
 An agent-based model (AVM) is a computational model that simulates the actions and interactions of autonomous agents to understand complex systems.
@@ -88,4 +98,11 @@ Both models have their advantages and disadvantages. ABMs can capture more detai
 The choice of which model to use would depend on one’s specific goals and requirements. 
 
 ------------------------------------------------------------------------------------------------------------------------
+
+##### JUST FOR FUN
+
+* Tried incresing the population size to 100000
+![](CA_Sim_HighRez.gif)
+
+
 @author: Rubait Ul Ahamed [ID: 7876180]
