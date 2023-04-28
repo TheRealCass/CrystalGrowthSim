@@ -1,17 +1,15 @@
 ---
 To whom it may concern,
-This repository was made for my PHYS 2010 [Computational Modeling] class which i am taking at the University Of Manitoba.
+This repository was made for my Physics class which i was taking at the University Of Manitoba in the winter of 2023. In this class we took a look at Computational Modeling.
 
 There are 2 files that both simulate the groth of a crystal in a breaker full of solution that has a impurity placed in the middle. One of the python files uses Agent-Based Modelling to simulate it, while the other uses Cellular Atomaton
 
-I hope this repository helps you in any meaningfull way. If it does do comment. Would love to know how it did
+I hope this repository helps you in any meaningfull way. If it does, do comment! 
 
 Please feel free to fork this code and if you can make it better, do create a pull request.
 ---
 
-# PHYS 2010 [A01]
-
-## FINAL PROJECT
+## Defination
 
 An agent-based model (AVM) is a computational model that simulates the actions and interactions of autonomous agents to understand complex systems.
 
@@ -105,7 +103,7 @@ The choice of which model to use would depend on one’s specific goals and requ
 ---
 
 @author: Rubait Ul Ahamed
-@contributers: Gabriel Comby (documentation and upkeep)
+@contributers: Gabriel Comby (documentation)
 
 
 ---
