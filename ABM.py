@@ -1,9 +1,5 @@
 ###############################################################################################################################
-# NAME: Rubait Ul Ahamed
-# STUDENT NUMBER: 7876180
-# COURSE: PHYS 2010, SECTION: A01
-# INSTRUCTOR: Jesko Sirkir
-# FINAL PROJECT
+# AUTHOR: Rubait Ul Ahamed
 # 
 # REMARKS: Simulates the groth of a crystal given a impurity in the middle of the enviournment. This simulation uses
 #       Agent-Based Model (ABM) to achieve it's final result
