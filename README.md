@@ -102,4 +102,14 @@ The choice of which model to use would depend on one’s specific goals and requ
 - Tried incresing the population size to 100000
   ![](CA_Sim_HighRez.gif)
 
-@author: Rubait Ul Ahamed [ID: 7876180]
+---
+
+@author: Rubait Ul Ahamed
+@contributers: Gabriel Comby (documentation and upkeep)
+
+
+---
+
+Lastly, 
+Major thanks and shoutout to all the contributers who take the time out to help and make open source more acessable and better for others
+
