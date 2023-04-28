@@ -17,7 +17,7 @@ A cellular Automaton (CA) is a discreate model that consists of a grid of cells,
 
 ---
 
-### Describe how you will create the agent-based model and the cellular automaton, what the essential steps in each model are, and why you have chosen these implementations.
+### Description of how I created the agent-based model and the cellular automaton, what the essential steps in each model were, and why I have chosen these implementations.
 
 1. #### Steps to create a AVM for crystal growth
 
@@ -65,21 +65,21 @@ A cellular Automaton (CA) is a discreate model that consists of a grid of cells,
 
 ---
 
-### Write a code for the agent-based model.
+### Code for the agent-based model.
 
 The source code for the simulation of crystal growth using Agent-Based Model (ABM) can be found in the file named **ABM.py**
 This code was used to generate one of the _gif_ file that you see below in section D.
 
 ---
 
-### Write a code for the cellular automaton.
+### Code for the cellular automaton.
 
 The source code for the simulation of crystal growth using Cellular Automaton (CA) can be found in the file named **CA.py**
 This code was used to generate one of the _gif_ file that you see below in section D.
 
 ---
 
-### Show at least one example for a crystal you have grown with the agent-based model and with the cellular automaton. Discuss if and why there are any differences between the results of the two models and how the results depend on the parameters of each model.
+### Shown here at least one example for a crystal you have grown with the agent-based model and with the cellular automaton. Discussion of if and why there are any differences between the results of the two models and how the results depend on the parameters of each model.
 
 Both Simulation was run with the same parameters, except density.
 
@@ -97,7 +97,7 @@ The choice of which model to use would depend on one’s specific goals and requ
 
 ### JUST FOR FUN
 
-- Tried incresing the population size to 100000
+- Tried incresing the population size to 100000. Spent hours looking at this mesmerising pattern
   ![](CA_Sim_HighRez.gif)
 
 ---
