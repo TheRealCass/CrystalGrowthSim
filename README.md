@@ -98,7 +98,7 @@ The choice of which model to use would depend on one’s specific goals and requ
 ### JUST FOR FUN
 
 - Tried incresing the population size to 100000. Spent hours looking at this mesmerising pattern
-  ![](CA_Sim_HighRez.gif)
+![population size to 100000](CA_Sim_HighRez.gif)
 
 ---
 
