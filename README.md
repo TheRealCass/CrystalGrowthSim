@@ -84,9 +84,11 @@ This code was used to generate one of the _gif_ file that you see below in secti
 Both Simulation was run with the same parameters, except density.
 
 The simulation of crystal growth from an impurity in a liquid using Agent-Based Model (ABM) is shown below. In this simulation the density (i.e., the number of particles to free space in the system) is set to 75%
+
 ![75% density](ABM_Sim.gif)
 
 The simulation of crystal growth from a impurity in a liquid using Cellular Automaton (CA) is shown below. In this simulation the density is set to the other end of the spectrum, at 25%
+
 ![25% density](CA_Sim.gif)
 
 Both models have their advantages and disadvantages. ABMs can capture more detailed behaviour and interactions between agents but can be much more computationally intensive. CAs are simpler and faster to simulate but may not capture as much detail.
